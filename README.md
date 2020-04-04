@@ -64,12 +64,12 @@ pip install keras
 Visit: [Keras Install Instructions](https://keras.io/#installation) for details.
 
 ## How to use?
-1. Download the dataset from [HERE](https://physionet.org/cgi-bin/atm/ATM) and select the following parameters:
-   1. Database - `PAF Prediction Challenge Database (afpdb)`
-   2. Record - nXX (for each `Normal Patient` data) and pXX (for each `Abnoramal Patient` data)
-   3. Length - `to end`
-   4. Time Format - `Samples`
-   5. Toolbox - `Export signals to CSV`
+1. Download the dataset from [MIT-BIH Atrial Fibrillation Database](https://physionet.org/content/afdb/1.0.0/) ~~and select the following parameters:~~ EDIT: The dataset source has changed, and I have not verfieid this data, it may be the same or different from the one I had used for training.
+   ~~1. Database - `PAF Prediction Challenge Database (afpdb)`~~
+   ~~2. Record - nXX (for each `Normal Patient` data) and pXX (for each `Abnoramal Patient` data)~~
+   ~~3. Length - `to end`~~
+   ~~4. Time Format - `Samples`~~
+   ~~5. Toolbox - `Export signals to CSV`~~
 2. Put them in the desired path and change the path of the `Data_Preprocessing.ipynb` to be able to read the signals from the downloaded CSVs.
 3. Save the processed dataset as a Numpy Object in the desired location.
 4. In the file `Model.ipynb` read the saved processed dataset and train the model.
