@@ -1,82 +1,147 @@
-# ECG based AF Classifier using CNNs
-This is a CNN based model which aims to automatically classify the ECG signals of a normal patient vs. a patient with AF and has been trained to achieve up to `93.33%` validation accuracy. The dataset details are given at the `How to use` section. 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-Additionally, Github often fails to load iPython Notebook files for preview. Hence, the Notebooks can also be viewed at the following links:
-- [Data_Preprocessing.ipynb](https://nbviewer.jupyter.org/github/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/blob/master/Data_Preprocessing.ipynb)
-- [Model.ipynb](https://nbviewer.jupyter.org/github/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/blob/master/Model.ipynb)
 
-## Dependencies:
-  1. Python 3
-  2. Pandas
-  3. Numpy
-  4. Matplotlib
-  5. Tensorflow
-  6. Keras
 
-## Installation for Python 3
-Visit: https://www.python.org/downloads/ and download the version suitable for your System
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+    <img src="assets/icon.png" alt="Logo" width="150" height="150">
 
-## Installation for Pandas
-Open Command Prompt (Windows) or Terminal (Linux) and type in the following command:
-~~~     
-pip install pandas
-~~~
+  <h2 align="center">ECG based Atrial Fibrillation Classifier using 1D CNNs</h2>
 
-Visit: [Pandas Install Instructions](https://pandas.pydata.org/pandas-docs/stable/install.html) for details.
+  <p align="center">
+    A CNN based to classify the ECG signals of a patient with and without Atrial Fibrillation. Accuracy Achieved: 93.33%.
+    <br />
+    <a href="https://nbviewer.jupyter.org/github/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/blob/master/Data_Preprocessing.ipynb">Data Preprocessing Notebook</a>
+    ·
+    <a href="https://nbviewer.jupyter.org/github/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/blob/master/Model.ipynb">Model Notebook</a>
+    ·
+    <a href="https://github.com/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/issues/new">Report Bug</a>
+  </p>
+</p>
+<!-- TABLE OF CONTENTS -->
 
-## Installation for Numpy
-Open Command Prompt (Windows) or Terminal (Linux) and type in the following command:
-~~~     
-pip install numpy
-~~~
+## Table of Contents
 
-Visit: [Numpy Install Instructions](https://www.scipy.org/install.html) for details.
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+- [Jupyter Notebooks - nbViewer](#jupyter-notebooks---nbviewer)
+- [Dataset Information](#dataset-information)
+- [How to Run](#how-to-run)
+  - [Hardware Used for the Experiment](#hardware-used-for-the-experiment)
+  - [Built With](#built-with)
+- [Changelog](#changelog)
+- [Contributing](#contributing)
+- [License](#license)
+- [Future Improvements](#future-improvements)
+- [Contact](#contact)
+    - [Animikh Aich](#animikh-aich)
 
-## Installation for Matplotlib
-Open Command Prompt (Windows) or Terminal (Linux) and type in the following command:
-~~~     
-pip install matplotlib
-~~~
+<!-- ABOUT THE PROJECT -->
 
-Visit: [Matplotlib Install Instructions](https://matplotlib.org/users/installing.html) for details.
+## About The Project
 
-## Installation for Tensorflow
-There are two formats of Tensorflow. One is for the CPU version and the other is for GPU version (Nvidia only)
+This is a CNN based model which aims to automatically classify the ECG signals of a normal patient vs. a patient with Atrial Fibrillation and has been trained to achieve up to `93.33%` validation accuracy.
 
-The CPU installation is quite straight forward installation by the following command:
+The CNN used here is 1D Convolutional Neural Networks.
 
-~~~
-pip install tensorflow
-~~~
 
-The GPU version requires the installation of CUDA and cuDNN drivers from Nvidia. This is a relatively complicated process and it is suggested to visit the official guide for this.
+## Jupyter Notebooks - nbViewer
 
-Visit: [Tensorflow GPU Install Instructions](https://www.tensorflow.org/install/gpu) for details.
+- [Dataset Preparation Notebook](https://nbviewer.jupyter.org/github/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/blob/master/Data_Preprocessing.ipynb)
+- [Model - Main Notebook Containing the Dataset Loader and Model Architecture](https://nbviewer.jupyter.org/github/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/blob/master/Model.ipynb)
 
-## Installation for Keras
-Even though Keras comes built inside tensorflow, in this repository, the code that is used is using the external Keras library. It can be downloaded using the following method.
 
-Open Command Prompt (Windows) or Terminal (Linux) and type in the following command:
-~~~     
-pip install keras
-~~~
+## Dataset Information
 
-Visit: [Keras Install Instructions](https://keras.io/#installation) for details.
+- Download the dataset from [MIT-BIH Atrial Fibrillation Database](https://physionet.org/content/afdb/1.0.0/)
 
-## How to use?
-1. Download the dataset from [MIT-BIH Atrial Fibrillation Database](https://physionet.org/content/afdb/1.0.0/) ~~and select the following parameters:~~ EDIT: The dataset source has changed, and I have not verfieid this data, it may be the same or different from the one I had used for training.
-   1. ~~Database - `PAF Prediction Challenge Database (afpdb)`~~
-   2. ~~Record - nXX (for each `Normal Patient` data) and pXX (for each `Abnoramal Patient` data)~~
-   3. ~~Length - `to end`~~
-   4. ~~Time Format - `Samples`~~
-   5. ~~Toolbox - `Export signals to CSV`~~
+Note: The dataset has been moved from the original URL. Hence, the dataset provided above may be different from the one that was originally used to create this project. 
+
+## How to Run
+
+The experiment should be fairly reproducible. However, a GPU would be recommended for training. For Inference, a CPU System would suffice.
+
+1. Download the dataset from the above mentioned link.
 2. Put them in the desired path and change the path of the `Data_Preprocessing.ipynb` to be able to read the signals from the downloaded CSVs.
 3. Save the processed dataset as a Numpy Object in the desired location.
 4. In the file `Model.ipynb` read the saved processed dataset and train the model.
 5. Any unknown dataset can be then classified by using `model.predict()` function after the `model` has been trained successfully. 
 
+### Hardware Used for the Experiment
+
+- CPU: AMD Ryzen 7 3700X - 8 Cores 16 Threads
+- GPU: Nvidia GeForce RTX 2080 Ti 11 GB
+- RAM: 32 GB DDR4 @ 3200 MHz
+- Storage: 1 TB NVMe SSD (This is not important, even a normal SSD would suffice)
+- OS: Ubuntu 20.10
+
+Alternative Option: [Google Colaboratory - GPU Kernel](https://colab.research.google.com/)
+
+
+### Built With
+
+Simple List of Deep Learning Libraries. The main Architecture/Model is developed with Keras, which comes as a part of Tensorflow 1.x
+
+- [Tensorflow](https://www.tensorflow.org/)
+- [Scikit Learn](https://scikit-learn.org/)
+- [Keras](https://keras.io/)
+- [Matplotlib](https://matplotlib.org/)
+- [Numpy](https://numpy.org/)
+- [Pandas](https://pandas.pydata.org/)
+
+
+## Changelog
+
+Since this is a Proof of Concept Project, I am not maintaining a CHANGELOG.md at the moment. However, the primary goal is to improve the architecture to make the predicted masks more accurate.
+
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
 ## Future Improvements
-This is a preliminary attempt and is a work-in-progress.
+This is a preliminary attempt and is a work-in-progress:
 1. In this particular implementation, only 10 Normal patients' data and 10 Abnormal patients' data has been taken and used. The entire dataset has not been used. Using the complete dataset may significantly improve the model accuracy. 
 2. The CNN architecture can be further modified so as to find an optimal architecture that will learn better than the existing one.
 3. As per experimentation, SGD (Stochastic Gradient Descent) optimizer works the best. However, with further change in model architecture, other optimizers like Adam and RMSProp may outperform the rather primitive SGD optimizer.
+
+## Contact
+
+#### Animikh Aich
+
+- Website: [Animikh Aich - Website](http://www.animikh.me/)
+- LinkedIn: [animikh-aich](https://www.linkedin.com/in/animikh-aich/)
+- Email: [animikhaich@gmail.com](mailto:animikhaich@gmail.com)
+- Twitter: [@AichAnimikh](https://twitter.com/AichAnimikh)
+
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN.svg?style=flat-square
+[contributors-url]: https://github.com/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN.svg?style=flat-square
+[forks-url]: https://github.com/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/network/members
+[stars-shield]: https://img.shields.io/github/stars/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN.svg?style=flat-square
+[stars-url]: https://github.com/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/stargazers
+[issues-shield]: https://img.shields.io/github/issues/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN.svg?style=flat-square
+[issues-url]: https://github.com/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/issues
+[license-shield]: https://img.shields.io/github/license/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN.svg?style=flat-square
+[license-url]: https://github.com/animikhaich/ECG-Atrial-Fibrillation-Classification-Using-CNN/blob/master/LICENSE.md
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/animikh-aich/
+[product-screenshot]: assets/face-blur-demo.gif
